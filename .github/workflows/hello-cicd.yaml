@@ -1,6 +1,8 @@
 name:  Initial Pipeline
 
-on:  [push]
+on:
+  [workflow_dispatch]
+  [push]
 
 jobs:
   display-text:
