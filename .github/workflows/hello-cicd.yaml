@@ -2,7 +2,7 @@ name:  Initial Pipeline
 
 on:
   workflow_dispatch:
-  [push]
+  push:
 
 jobs:
   display-text:
