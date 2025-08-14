@@ -1,4 +1,4 @@
-name:  Initial Pipeline
+name: Initial Pipeline
 
 on:
   workflow_dispatch:
@@ -6,7 +6,11 @@ on:
 
 jobs:
   display-text:
-    runs-on:  ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name:  Print Text
-        run:  echo "Hello"
+      - name: Show System Information
+        run: uname -a
+      - name: Print Text
+        run: echo "Hello"
+      - name: show current date
+        run: date
