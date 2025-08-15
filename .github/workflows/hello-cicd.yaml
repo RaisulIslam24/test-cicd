@@ -8,6 +8,13 @@ jobs:
   display-text:
     runs-on: ubuntu-latest
     steps:
+      - name: Insstall dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl jq
+
+          echo "jq: $(jq --version)"
+          echo "curl: $(curl --version)"
       - name: Show System Information
         run: |
           echo "Running on $(uname -s) $(uname -a)"
