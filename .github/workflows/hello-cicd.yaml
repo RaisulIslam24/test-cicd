@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show System Information
-        run:
+        run: |
           echo "Running on $(uname -s) $(uname -a)"
           echo "current user: $(whoami)"
           echo "OS: $RUNNER_OS"
