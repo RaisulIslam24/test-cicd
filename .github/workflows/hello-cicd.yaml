@@ -18,19 +18,14 @@ jobs:
     env:
       JOB_VAR: 'job-level'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
     steps:
-      - name: Print Environment Variables
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl jq
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-          echo "jq: $(jq --version)"
-          echo "curl: $(curl --version)"
-          echo "GLOBAL_VAR: $GLOBAL_VAR"
-          echo "JOB_VAR: $JOB_VAR"
-        env:
-          STEP_VAR: 'step-level'
-        -name: Access Github repo secrets and vars
-          run: |
-            echo "REPO_VAR: $REPO_VAR"
-            echo "REPO_SECRET: {}" ${{ secrets.REPO_SECRET }}
+      - name: Print Node.js version
+        run: node -v
